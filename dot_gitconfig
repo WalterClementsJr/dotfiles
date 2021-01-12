@@ -1,23 +1,26 @@
 [user]
-	email = 61227405+WalterClementsJr@users.noreply.github.com
-	name = Walker
+  email = 61227405+WalterClementsJr@users.noreply.github.com
+  name = Walker
 
 [alias]
-	pf = push --force-with-lease
+  pf = push --force-with-lease
   cm = commit -m
   ca = commit --amend --no-edit
   # custom log
-	cl = log --pretty='%C(yellow)%h %C(cyan)%cd %Cblue%aN%C(auto)%d %Creset%s' --graph --date=relative --date-order
+  cl = log --pretty='%C(yellow)%h %C(cyan)%cd %Cblue%aN%C(auto)%d %Creset%s' --graph --date=relative --date-order
   st = status
 
 [core]
-	editor = nvim
-	symlinks = true
-	autocrlf = input
+  editor = nvim
+  symlinks = true
+  autocrlf = input
 
 [rerere]
   enabled = true
   autoupdate = true
-
+ 
 # TODO: pull configs from work
+
+[credential]
+  helper = manager
 
