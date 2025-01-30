@@ -21,3 +21,6 @@
  
 # TODO: pull configs from work
 
+[credential]
+  helper = manager
+
