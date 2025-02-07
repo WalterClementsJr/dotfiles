@@ -1,0 +1,7 @@
+theme = "catppuccin-frappe"
+background-opacity = 0.85
+
+keybind=ctrl+n=new_window
+keybind=ctrl+t=new_tab
+keybind=ctrl+tab=next_tab
+
