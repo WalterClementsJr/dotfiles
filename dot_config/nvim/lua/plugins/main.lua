@@ -1,15 +1,19 @@
 return {
+  { "rebelot/kanagawa.nvim" },
+
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "kanagawa",
+    },
   },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
         "bash",
+        "go",
         "html",
         "javascript",
         "json",
