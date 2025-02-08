@@ -1,3 +1,3 @@
-local map = LazyVim.safe_keymap_set
+local map = vim.keymap.set
 
 map("i", "jk", "<Esc>")
