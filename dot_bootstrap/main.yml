@@ -27,13 +27,12 @@
           - gcc
           - gcc-c++
           - gh
-          - ghostty
+          # - ghostty
           - git
-          - lazydocker
-          - lazygit
+          # - lazygit
           - virt-manager
           - make
-          - nvim
+          - neovim
           - nvtop
           - tealdeer
           - tmux
@@ -49,7 +48,6 @@
           - dolphin # GUI file manager
           - lutris
           - calibre
-          - chromium
           - gnome-tweaks
           - ibus-unikey
           - qbittorrent
@@ -145,7 +143,7 @@
       ignore_errors: true
       changed_when: false
 
-    - name: Download Jetbrains mono
+    - name: Download & install Jetbrains mono
       when: jetbrains_mono_exists is failed
       ansible.builtin.unarchive:
         src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
