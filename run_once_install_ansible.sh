@@ -20,8 +20,10 @@ OS="$(uname -s)"
 case "${OS}" in
 Linux*)
   if [ -f /etc/fedora-release ]; then
+    echo "Fedora detected"
     install_on_fedora
   elif [ -f /etc/lsb-release ]; then
+    echo "Ubuntu detected"
     install_on_ubuntu
   else
     echo "Unsupported Linux distribution"
@@ -29,6 +31,7 @@ Linux*)
   fi
   ;;
 Darwin*)
+  echo "Mac detected"
   install_on_mac
   ;;
 *)
