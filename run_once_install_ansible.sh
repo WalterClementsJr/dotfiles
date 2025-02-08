@@ -13,7 +13,10 @@ install_on_mac() {
   brew install ansible
 }
 
+echo "Installing Ansible"
+
 OS="$(uname -s)"
+
 case "${OS}" in
 Linux*)
   if [ -f /etc/fedora-release ]; then
@@ -34,8 +37,10 @@ Darwin*)
   ;;
 esac
 
-echo "Ansible will begin installation"
+ansible --version
+
+echo "Ansible will begin setting up your machine"
 
 ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass
 
-echo "Ansible installation complete."
+echo "Ansible installation complete"
