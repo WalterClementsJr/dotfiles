@@ -12,13 +12,13 @@
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
 
-    - name: Install packages
+    - name: Install development packages
+      tags: devtool
       ansible.builtin.dnf:
         name:
           - btop
           - chromium
           - curl
-          - dolphin # GUI file manager
           - fastfetch
           - fd-find
           - ffmpeg-free
@@ -29,8 +29,6 @@
           - gh
           - ghostty
           - git
-          - gnome-tweaks
-          - ibus-unikey 
           - lazydocker
           - lazygit
           - virt-manager
@@ -42,6 +40,19 @@
           - yt-dlp
           - zoxide
           - zsh
+        state: present
+
+    - name: Install user packages
+      tags: tool
+      ansible.builtin.dnf:
+        name:
+          - dolphin # GUI file manager
+          - lutris
+          - calibre
+          - chromium
+          - gnome-tweaks
+          - ibus-unikey
+          - qbittorrent
         state: present
 
     - name: Change shell to zsh
@@ -119,7 +130,6 @@
           - com.obsproject.Studio
           - org.videolan.VLC
           - md.obsidian.Obsidian
-          - org.gnome.meld
         state: present
 
     - name: Ensure fonts directory
