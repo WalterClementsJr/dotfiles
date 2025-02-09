@@ -42,5 +42,5 @@ esac
 
 ansible --version
 echo "Ansible will begin setting up your machine"
-ansible-playbook ~/.bootstrap/main.yml --ask-become-pass
+ansible-playbook ~/.bootstrap/main.yml -vvv --ask-become-pass
 echo "Ansible installation complete"
