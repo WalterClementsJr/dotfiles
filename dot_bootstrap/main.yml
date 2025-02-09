@@ -58,15 +58,10 @@
         name: "{{ remote_regular_user }}"
         shell: /usr/bin/zsh
 
-    - name: Download ohmyzsh
-      ansible.builtin.get_url:
-        url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-        dest: "/home/{{ remote_regular_user }}/install.sh"
-        mode: '0755'
-
     - name: Install ohmyzsh
-      ansible.builtin.script:
-        cmd: "/home/{{ remote_regular_user }}/install.sh"
+      shell:
+        cmd: |
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
     - name: Install DNF plugins core
       ansible.builtin.dnf:
