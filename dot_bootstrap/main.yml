@@ -28,7 +28,6 @@
           - gcc-c++
           - gh
           # - ghostty
-          - git
           # - lazygit
           - virt-manager
           - make
@@ -39,6 +38,11 @@
           - yt-dlp
           - zoxide
           - zsh
+        state: present
+
+    - name: Install the 'Development tools' package group
+      ansible.builtin.dnf:
+        name: '@Development tools'
         state: present
 
     - name: Install user packages
@@ -146,4 +150,9 @@
         remote_src: true
         mode: "0755"
         owner: "{{ remote_regular_user }}"
+
+    - name: Installing Tmux plugins manager
+      ansible.builtin.git:
+        repo: 'https://github.com/tmux-plugins/tpm'
+        dest: "~/.tmux/plugins/tpm"
 
