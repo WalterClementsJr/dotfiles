@@ -24,3 +24,6 @@
 [credential]
   helper = manager
 
+[merge]
+  tool = nvimdiff
+
