@@ -58,14 +58,12 @@
         state: present
 
     - name: Change shell to zsh
-      ansible.builtin.user:
-        name: "{{ remote_regular_user }}"
-        shell: /usr/bin/zsh
+      shell: /usr/bin/zsh
 
     - name: Install ohmyzsh
       shell:
         cmd: |
-          sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 
     - name: Install DNF plugins core
       ansible.builtin.dnf:
@@ -114,6 +112,10 @@
       ansible.builtin.group:
         name: docker
         state: present
+    - name: Add Flathub remote repository
+      shell:
+        cmd: |
+          sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
     - name: Add user to Docker group
       ansible.builtin.user:
