@@ -5,9 +5,13 @@ WORKDIR /root
 RUN sh -c "$(curl -fsLS get.chezmoi.io)"
 RUN mv ./bin/chezmoi /usr/bin/
 RUN dnf update -y
-RUN dnf install ansible -y
+
+# remove later
+RUN dnf install ansible neovim zsh flatpak -y
 
 COPY . /root/.local/share/chezmoi
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+# RUN chezmoi apply
+
+ENTRYPOINT ["chezmoi", "apply"]
 
