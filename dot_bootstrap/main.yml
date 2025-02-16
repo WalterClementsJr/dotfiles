@@ -10,7 +10,19 @@
   tasks:
     - name: Get my user
       ansible.builtin.set_fact:
-        remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+        remote_regular_user: "{{ ansible_user_id }}"
+
+    - name: Enable ghostty repo
+      community.general.copr:
+        host: copr.fedorainfracloud.org
+        state: enabled
+        name: pgdev/ghostty
+
+    - name: Enable lazygit repo
+      community.general.copr:
+        host: copr.fedorainfracloud.org
+        state: enabled
+        name: atim/lazygit
 
     - name: Install development packages
       tags: devtool
@@ -27,16 +39,18 @@
           - gcc
           - gcc-c++
           - gh
-          # - ghostty
-          # - lazygit
+          - ghostty
+          - lazygit
           - virt-manager
           - make
           - neovim
           - nvtop
           - tealdeer
+          - podman
           - tmux
           - yt-dlp
           - zoxide
+          - git
           - zsh
         state: present
 
@@ -55,6 +69,7 @@
           - gnome-tweaks
           - ibus-unikey
           - qbittorrent
+          - flatpak
         state: present
 
     - name: Change shell to zsh
@@ -112,16 +127,18 @@
       ansible.builtin.group:
         name: docker
         state: present
-    - name: Add Flathub remote repository
-      shell:
-        cmd: |
-          sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
+ 
     - name: Add user to Docker group
       ansible.builtin.user:
         name: "{{ remote_regular_user }}"
         groups: docker
         append: true
+ 
+    # TODO: chech why flatpak is freezing
+    - name: Add Flathub remote repository
+      shell:
+        cmd: |
+          sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
     - name: Install Flatpak packages
       community.general.flatpak:
@@ -129,6 +146,7 @@
           - com.obsproject.Studio
           - org.videolan.VLC
           - md.obsidian.Obsidian
+          - io.podman_desktop.PodmanDesktop
         state: present
 
     - name: Ensure fonts directory
