@@ -1,5 +1,5 @@
-theme = "catppuccin-frappe"
-background-opacity = 0.85
+theme="Afterglow"
+background-opacity=0.95
 
 keybind=ctrl+t=new_tab
 keybind=ctrl+tab=next_tab
