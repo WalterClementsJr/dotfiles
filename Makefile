@@ -11,7 +11,6 @@ run:
 	docker run \
 	  --name $(CONTAINER_NAME) \
 	  -d $(IMAGE_NAME) \
-		# -v ./:/home/.local/share/chezmoi
 
 # Stop the container
 stop:
