@@ -5,12 +5,12 @@ alias ll="ls -la"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
-alias v="$VISUAL"
+alias rm="echo Use the full path '/bin/rm', consider using trash/gio trash"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-# Easier navigation: ..., ...., ....., and -
+alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
