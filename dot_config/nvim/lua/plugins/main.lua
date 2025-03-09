@@ -1,13 +1,5 @@
 return {
-  { "rebelot/kanagawa.nvim" },
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "kanagawa",
-    },
-  },
-
+  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
