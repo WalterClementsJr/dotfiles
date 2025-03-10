@@ -31,6 +31,7 @@
           - btop
           - chromium
           - curl
+          - emacs
           - fastfetch
           - fd-find
           - ffmpeg-free
@@ -40,17 +41,19 @@
           - gcc-c++
           - gh
           - ghostty
+          - git
           - lazygit
-          - virt-manager
           - make
+          - meld
           - neovim
           - nvtop
-          - tealdeer
           - podman
+          - ripgrep
+          - tealdeer
           - tmux
+          - virt-manager
           - yt-dlp
           - zoxide
-          - git
           - zsh
         state: present
 
