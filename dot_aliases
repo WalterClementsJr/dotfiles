@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-# Unix
 
 alias ll="ls -la"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
-alias rm="echo Use the full path '/bin/rm', consider using trash/gio trash"
+alias rm="echo Use the full path '/bin/rm', or use trash/gio trash"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -22,6 +21,4 @@ alias lzg="lazygit"
 alias lzd="lazydocker"
 
 # Include custom aliases
-if [[ -f ~/.aliases.local ]]; then
-  source ~/.aliases.local
-fi
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
