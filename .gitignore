@@ -1,2 +1,3 @@
 *.tar.gz
-
+*.elc
+auto-save-list
