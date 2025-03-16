@@ -42,6 +42,7 @@
           - gh
           - ghostty
           - git
+          - jetbrains-mono-fonts-all
           - lazygit
           - make
           - meld
@@ -151,28 +152,6 @@
           - md.obsidian.Obsidian
           - io.podman_desktop.PodmanDesktop
         state: present
-
-    - name: Ensure fonts directory
-      ansible.builtin.file:
-        path: "~{{ remote_regular_user }}/.fonts"
-        state: directory
-        mode: "0755"
-        owner: "{{ remote_regular_user }}"
-
-    - name: Check if Jetbrains Mono exists
-      ansible.builtin.shell: "ls ~{{ remote_regular_user }}/.fonts/JetBrainsMonoNerd*FontMono*"
-      register: jetbrains_mono_exists
-      ignore_errors: true
-      changed_when: false
-
-    - name: Download & install Jetbrains mono
-      when: jetbrains_mono_exists is failed
-      ansible.builtin.unarchive:
-        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
-        dest: "~{{ remote_regular_user }}/.fonts/"
-        remote_src: true
-        mode: "0755"
-        owner: "{{ remote_regular_user }}"
 
     - name: Installing Tmux plugins manager
       ansible.builtin.git:
