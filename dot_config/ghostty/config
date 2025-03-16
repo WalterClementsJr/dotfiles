@@ -1,5 +1,7 @@
 theme="Afterglow"
+font-family="JetBrainsMono NL"
 background-opacity=0.95
+mouse-scroll-multiplier=5
 
 keybind=ctrl+t=new_tab
 keybind=ctrl+tab=next_tab
