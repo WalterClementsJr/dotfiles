@@ -21,7 +21,6 @@ return {
       },
     },
   },
-
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -40,7 +39,7 @@ return {
     },
     filesystem = {
       filtered_items = {
-        visible = false, -- hide filtered items on open
+        visible = false,
         hide_gitignored = true,
         hide_dotfiles = false,
         hide_by_name = {},
