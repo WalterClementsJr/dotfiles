@@ -1,8 +1,27 @@
-return {}
--- return {
---   "nvim-telescope/telescope.nvim",
---   keys = {
---     -- adding keymaps for live_grep
---     {},
---   },
--- }
+return {
+  {
+    "debugloop/telescope-undo.nvim",
+    dependencies = {
+      {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      },
+    },
+    keys = {
+      {
+        "<leader>uu",
+        "<cmd>Telescope undo<cr>",
+        desc = "Telescope undo",
+      },
+    },
+    opts = {
+      extensions = {
+        undo = {},
+      },
+    },
+    config = function(_, opts)
+      require("telescope").setup(opts)
+      require("telescope").load_extension("undo")
+    end,
+  },
+}
