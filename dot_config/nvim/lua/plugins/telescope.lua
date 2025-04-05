@@ -1,18 +1,27 @@
 return {
   {
-    "nvim-telescope/telescope.nvim",
+    "debugloop/telescope-undo.nvim",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "debugloop/telescope-undo.nvim",
+      {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      },
     },
-    config = function()
-      require("telescope").setup({
-        extensions = {
-          undo = {},
-        },
-      })
+    keys = {
+      {
+        "<leader>uu",
+        "<cmd>Telescope undo<cr>",
+        desc = "Telescope undo",
+      },
+    },
+    opts = {
+      extensions = {
+        undo = {},
+      },
+    },
+    config = function(_, opts)
+      require("telescope").setup(opts)
       require("telescope").load_extension("undo")
-      vim.keymap.set("n", "<leader>uu", "<cmd>Telescope file history<cr>")
     end,
   },
 }
