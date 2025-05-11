@@ -52,6 +52,7 @@
           - ripgrep
           - tealdeer
           - tmux
+          - valgrind
           - virt-manager
           - yt-dlp
           - zoxide
