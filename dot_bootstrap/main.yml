@@ -18,17 +18,29 @@
         state: enabled
         name: pgdev/ghostty
 
+    - name: Enable brave
+      community.general.copr:
+        host: copr.fedorainfracloud.org
+        state: enabled
+        name: atim/lazygit
+
     - name: Enable lazygit repo
       community.general.copr:
         host: copr.fedorainfracloud.org
         state: enabled
         name: atim/lazygit
 
+    - name: Brave repo
+      community.general.dnf_config_manager:
+        name: brave-browser
+        state: enabled
+
     - name: Install development packages
       tags: devtool
       ansible.builtin.dnf:
         name:
           - btop
+          - brave-browser
           - chromium
           - curl
           - emacs
@@ -42,6 +54,8 @@
           - gh
           - ghostty
           - git
+          - golang
+          - java-21-openjdk-devel
           - jetbrains-mono-fonts-all
           - lazygit
           - make
@@ -55,6 +69,7 @@
           - valgrind
           - virt-manager
           - yt-dlp
+          - zig
           - zoxide
           - zsh
         state: present
@@ -84,6 +99,11 @@
       shell:
         cmd: |
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+
+    - name: Installing Tmux plugins manager
+      ansible.builtin.git:
+        repo: 'https://github.com/tmux-plugins/tpm'
+        dest: "~/.tmux/plugins/tpm"
 
     - name: Install DNF plugins core
       ansible.builtin.dnf:
@@ -153,9 +173,4 @@
           - md.obsidian.Obsidian
           - io.podman_desktop.PodmanDesktop
         state: present
-
-    - name: Installing Tmux plugins manager
-      ansible.builtin.git:
-        repo: 'https://github.com/tmux-plugins/tpm'
-        dest: "~/.tmux/plugins/tpm"
 
