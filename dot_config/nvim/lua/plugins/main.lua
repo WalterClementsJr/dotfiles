@@ -1,5 +1,14 @@
 return {
-  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+  {
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.moonflyTransparent = true
+      vim.cmd("colorscheme moonfly")
+    end,
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -29,21 +38,18 @@ return {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
-    keys = {
-      { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Neotree" },
-    },
     opts = {
       window = {
         width = 30,
       },
-    },
-    filesystem = {
-      filtered_items = {
-        visible = false,
-        hide_gitignored = true,
-        hide_dotfiles = false,
-        hide_by_name = {},
-        never_show = { ".git" },
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_gitignored = true,
+          hide_dotfiles = false,
+          hide_by_name = {},
+          never_show = { ".git" },
+        },
       },
     },
   },

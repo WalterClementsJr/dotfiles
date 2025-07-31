@@ -16,7 +16,9 @@ return {
     },
     opts = {
       extensions = {
-        undo = {},
+        undo = {
+          saved_only = false,
+        },
       },
     },
     config = function(_, opts)
