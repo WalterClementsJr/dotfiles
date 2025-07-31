@@ -1,7 +1,6 @@
-theme="Afterglow"
+theme="Arthur"
 font-family="JetBrainsMono NL"
 background-opacity=0.95
-background-blur=true
 mouse-scroll-multiplier=5
 
 keybind=ctrl+t=new_tab
