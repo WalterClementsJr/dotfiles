@@ -1,10 +1,8 @@
-theme="Afterglow"
-font-family="JetBrainsMono NL"
+theme="Arthur"
+font-family="DepartureMono Nerd Font Mono"
 background-opacity=0.95
-background-blur=true
 mouse-scroll-multiplier=5
 
-keybind=ctrl+t=new_tab
-keybind=ctrl+tab=next_tab
+keybind=ctrl+shift+t=new_tab
+keybind=ctrl+shift+tab=next_tab
 keybind=ctrl+enter=ignore
-

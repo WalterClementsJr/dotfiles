@@ -40,7 +40,6 @@
       ansible.builtin.dnf:
         name:
           - btop
-          - brave-browser
           - chromium
           - curl
           - emacs
@@ -76,20 +75,19 @@
 
     - name: Install the 'Development tools' package group
       ansible.builtin.dnf:
-        name: '@Development tools'
+        name: '@Development Tools'
         state: present
 
     - name: Install user packages
       tags: tool
       ansible.builtin.dnf:
         name:
-          - dolphin # GUI file manager
-          - lutris
           - calibre
-          - gnome-tweaks
-          - ibus-unikey
-          - qbittorrent
+          - dolphin # GUI file manager
           - flatpak
+          - lutris
+          - qbittorrent
+          - steam
         state: present
 
     - name: Change shell to zsh
