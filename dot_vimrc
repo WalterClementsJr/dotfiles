@@ -1,0 +1,43 @@
+set nocp
+set encoding=utf-8
+
+syntax on
+filetype plugin indent on 
+
+set t_Co=256
+
+set noerrorbells
+set novisualbell
+
+set number relativenumber
+set ruler
+set ttyfast
+
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set nowrap
+set backspace=indent,eol,start
+set autoread
+
+set ignorecase
+set smartcase
+set hlsearch
+set showmatch
+set incsearch
+
+set hidden
+
+let mapleader=" "
+
+inoremap jk <Esc>
+
+" netwr
+nnoremap <leader>ee :Lexplore %:p:h<CR>
+nnoremap <Leader>ed :Lexplore<CR>
+" buffers
+nnoremap <Leader>be :buffers<CR>:buffer<Space>
+
+nnoremap <C-l> :nohlsearch<CR><C-l>
+
