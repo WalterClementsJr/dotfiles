@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=Otto
-Font=JetBrains Mono Thin,11,-1,5,100,0,0,0,0,0,0,0,0,0,0,1,Regular
+Font=JetBrainsMonoNL Nerd Font,14,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
 [General]
 Environment=TERM=xterm-256color,COLORTERM=truecolor
@@ -9,3 +9,4 @@ Parent=FALLBACK/
 
 [Terminal Features]
 BellMode=3
+BlinkingCursorEnabled=true
