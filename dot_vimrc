@@ -9,7 +9,7 @@ set t_Co=256
 set noerrorbells
 set novisualbell
 
-set nu rnu
+set number relativenumber
 set ruler
 set ttyfast
 
@@ -27,5 +27,17 @@ set hlsearch
 set showmatch
 set incsearch
 
+set hidden
+
+let mapleader=" "
+
 inoremap jk <Esc>
+
+" netwr
+nnoremap <leader>ee :Lexplore %:p:h<CR>
+nnoremap <Leader>ed :Lexplore<CR>
+" buffers
+nnoremap <Leader>be :buffers<CR>:buffer<Space>
+
+nnoremap <C-l> :nohlsearch<CR><C-l>
 
