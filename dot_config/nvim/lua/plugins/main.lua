@@ -1,12 +1,17 @@
 return {
   {
-    "bluz71/vim-moonfly-colors",
-    name = "moonfly",
+    "AlexvZyl/nordic.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g.moonflyTransparent = true
-      vim.cmd("colorscheme moonfly")
+      require("nordic").setup({
+        cursorline = {
+          bold = true,
+          bold_number = true,
+          theme = "light",
+          blend = 1,
+        },
+      })
     end,
   },
   {
@@ -31,6 +36,12 @@ return {
     },
   },
   {
+    "nanozuki/tabby.nvim",
+    config = function()
+      vim.o.showtabline = 2
+    end,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
@@ -52,5 +63,10 @@ return {
         },
       },
     },
+  },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
 }

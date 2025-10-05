@@ -4,6 +4,10 @@ return {
     enabled = false,
   },
   {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+  {
     -- disable the clock https://www.lazyvim.org/plugins/ui#lualinenvim
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)

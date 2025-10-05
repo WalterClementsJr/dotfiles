@@ -17,7 +17,7 @@ return {
     opts = {
       extensions = {
         undo = {
-          saved_only = false,
+          saved_only = true,
         },
       },
     },
