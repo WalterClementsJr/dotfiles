@@ -32,6 +32,7 @@ set hidden
 let mapleader=" "
 
 inoremap jk <Esc>
+tnoremap JK <C-\><C-n>
 
 " netwr
 nnoremap <leader>ee :Lexplore %:p:h<CR>

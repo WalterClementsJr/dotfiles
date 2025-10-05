@@ -1,56 +1,57 @@
 return {
+  { "nvim-mini/mini.nvim", version = false },
   {
-    "bluz71/vim-moonfly-colors",
-    name = "moonfly",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.g.moonflyTransparent = true
-      vim.cmd("colorscheme moonfly")
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      delay = 500,
+    },
+  },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    opts = {
+      menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+      },
+      settings = {
+        save_on_toggle = true,
+      },
+    },
+    keys = function()
+      local harpoon = require("harpoon")
+      local keys = {
+        {
+          "<leader>H",
+          function()
+            harpoon:list():add()
+          end,
+          desc = "Harpoon Add File",
+        },
+        {
+          "<leader>h",
+          function()
+            local harpoon = harpoon
+            harpoon.ui:toggle_quick_menu(harpoon:list())
+          end,
+          desc = "Harpoon Quick Menu",
+        },
+      }
+
+      for i = 1, 9 do
+        table.insert(keys, {
+          "<leader>h" .. i,
+          function()
+            harpoon:list():select(i)
+          end,
+          desc = "Harpoon to File " .. i,
+        })
+      end
+      return keys
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "go",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "yaml",
-      },
-    },
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {
-      window = {
-        width = 30,
-      },
-      filesystem = {
-        filtered_items = {
-          visible = true,
-          hide_gitignored = true,
-          hide_dotfiles = false,
-          hide_by_name = {},
-          never_show = { ".git" },
-        },
-      },
-    },
+    "folke/flash.nvim",
+    event = "VeryLazy",
   },
 }
