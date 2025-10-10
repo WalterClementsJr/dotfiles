@@ -4,6 +4,10 @@ return {
     enabled = false,
   },
   {
+    "folke/noice.nvim",
+    enabled = false,
+  },
+  {
     "akinsho/bufferline.nvim",
     enabled = false,
   },
@@ -13,5 +17,9 @@ return {
     opts = function(_, opts)
       opts.sections.lualine_z = {}
     end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
   },
 }

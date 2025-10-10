@@ -1,17 +1,51 @@
 return {
   {
+    "stevearc/oil.nvim",
+    dependencies = { { "nvim-mini/mini.icons" } },
+    keys = {
+      { "-", "<Cmd>Oil<CR>", desc = "Browse files from here" },
+    },
+    opts = {
+      delete_to_trash = true,
+      view_options = {
+        show_hidden = true,
+      },
+    },
+    lazy = false,
+    config = function(_, opts)
+      require("oil").setup(opts)
+    end,
+  },
+  { "nvim-mini/mini.nvim", version = false },
+  {
+    "nvim-mini/mini.files",
+    version = "*",
+    config = function()
+      require("mini.files").setup()
+    end,
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      delay = 500,
+    },
+  },
+  {
     "AlexvZyl/nordic.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("nordic").setup({
+      local nordic = require("nordic")
+      nordic.setup({
         cursorline = {
-          bold = true,
-          bold_number = true,
+          bold = false,
+          bold_number = false,
           theme = "light",
-          blend = 1,
+          blend = 0.8,
         },
       })
+      nordic.load({})
     end,
   },
   {
@@ -40,29 +74,6 @@ return {
     config = function()
       vim.o.showtabline = 2
     end,
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {
-      window = {
-        width = 30,
-      },
-      filesystem = {
-        filtered_items = {
-          visible = true,
-          hide_gitignored = true,
-          hide_dotfiles = false,
-          hide_by_name = {},
-          never_show = { ".git" },
-        },
-      },
-    },
   },
   {
     "ThePrimeagen/harpoon",
