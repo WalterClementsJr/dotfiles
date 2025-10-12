@@ -13,8 +13,8 @@ set number relativenumber
 set ruler
 set ttyfast
 
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 set nowrap
@@ -33,12 +33,25 @@ let mapleader=" "
 
 inoremap jk <Esc>
 tnoremap JK <C-\><C-n>
+tnoremap <esc><esc> <C-\><C-n>
 
 " netwr
 nnoremap <leader>ee :Lexplore %:p:h<CR>
 nnoremap <Leader>ed :Lexplore<CR>
-" buffers
-nnoremap <Leader>be :buffers<CR>:buffer<Space>
 
-nnoremap <C-l> :nohlsearch<CR><C-l>
+
+" buffers
+nnoremap <Leader>bb :buffers<CR>:buffer<Space>
+nnoremap <S-h> <cmd>bnext<CR>
+nnoremap <S-l> <cmd>bprev<CR>
+nnoremap <leader>bd <cmd>bdelete<CR>
+nnoremap <leader>bo <cmd>%bd\|e#\|bd#<CR>
+
+nnoremap <Esc> :nohlsearch<CR><C-l>
+
+" window
+nnoremap <C-Up> <cmd>resize +2<cr>
+nnoremap <C-Down> <cmd>resize -2<cr>
+nnoremap <C-Left> <cmd>vertical resize -1<cr>
+nnoremap <C-Right> <cmd>vertical resize +2<cr>
 
