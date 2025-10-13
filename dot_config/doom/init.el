@@ -1,5 +1,6 @@
-;;; -*- lexical-binding: t; -*-
-(doom! :input
+;;; init.el -*- lexical-binding: t; -*-
+(
+ doom! :input
        japanese
 
        :completion
@@ -172,4 +173,5 @@
 
        :config
        ;;literate
-       (default +bindings +smartparens))
+       (default +bindings +smartparens)
+)
