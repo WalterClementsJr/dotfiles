@@ -1,3 +1,7 @@
+require("lualine").setup()
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -7,13 +11,13 @@ vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 vim.g.deprecation_warnings = false
 vim.g.trouble_lualine = true
 vim.g.markdown_recommended_style = 0
-vim.o.showtabline = 2
+vim.opt.showtabline = 2
 
 local opt = vim.opt
 opt.autowrite = true
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 2
+opt.conceallevel = 0
 opt.confirm = true
 opt.fillchars = {
   foldopen = "",
@@ -26,7 +30,6 @@ opt.fillchars = {
 opt.foldlevel = 99
 opt.foldmethod = "indent"
 opt.foldtext = ""
-opt.formatexpr = "v:lua.LazyVim.format.formatexpr()"
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
@@ -60,16 +63,8 @@ opt.virtualedit = "block"
 opt.wildmode = "longest:full,full"
 opt.winminwidth = 5
 
-
-vim.keymap.set(
-  {"n", "t", "i"},
-  "<space>tt",
-  function() Snacks.terminal() end,
-  { desc = "Toggle Terminal" }
-)
+vim.keymap.set({ "n", "t" }, "<space>tt", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
 vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
 vim.keymap.set("n", "<leader>bo", function() Snacks.bufdelete.other() end, { desc = "Delete Other Buffers" })
 
-require("lualine").setup()
-require("mason").setup()
-
+vim.cmd.colorscheme("nightfly")
