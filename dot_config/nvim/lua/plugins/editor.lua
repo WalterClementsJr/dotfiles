@@ -22,10 +22,17 @@ return {
       { "-", "<Cmd>Oil<CR>", desc = "Browse files from here" },
     },
     opts = {
+      columns = { "icon", "permissions", "size", "mtime" },
       delete_to_trash = true,
       view_options = {
         show_hidden = true,
       },
+      lsp_file_methods = {
+        enabled = true,
+        timeout_ms = 1000,
+        autosave_changes = false,
+      },
+      watch_for_changes = true,
     },
     lazy = false,
     config = function(_, opts)
