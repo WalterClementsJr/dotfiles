@@ -1,47 +1,57 @@
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.expandtab = true
-vim.opt.smarttab = true
-vim.opt.shiftwidth = 2
-vim.opt.autoindent = true
-vim.opt.smartindent = true
+vim.cmd("source ~/.vimrc") -- use base config from Vim
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.scrolloff = 4
-vim.opt.showcmd = true
+require("config.lazy") -- lazy.nvim
 
-vim.opt.clipboard = "unnamedplus"
+require("lualine").setup()
+require("mason").setup()
+require("mason-lspconfig").setup()
 
-vim.opt.conceallevel = 0
-vim.opt.cursorline = false
-vim.opt.laststatus = 3
+local opt = vim.opt
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+opt.inccommand = "split" -- regex replace preview
+opt.autowrite = true
+opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
+
+opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
+
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+opt.shortmess:append({ W = true, I = true, c = true, C = true })
+opt.showmode = false -- already have a status line
+opt.wildmode = "longest:full,full"
+opt.pumblend = 10
+opt.jumpoptions = "view"
+
+vim.g.maplocalleader = "\\"
+
+vim.g.autoformat = true
+vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
+vim.g.deprecation_warnings = false
+vim.g.trouble_lualine = true
+vim.g.markdown_recommended_style = 0
 
 local keymap = vim.keymap.set
 keymap("t", "<Esc><Esc>", "<C-\\><C-n>")
--- visual indent
-keymap("v", "<", "<gv")
-keymap("v", ">", ">gv")
--- resize
-keymap("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
-keymap("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
-keymap("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
-keymap("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 keymap({ "i", "n", "s" }, "<esc>", function()
-  vim.cmd("noh")
+  vim.cmd("nohlsearch")
   return "<esc>"
 end, { expr = true, desc = "Escape and Clear hlsearch" })
 keymap("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
+
 -- buffers
 keymap("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 keymap("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 keymap("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Kill Buffer" })
 
-require("config.lazy") -- lazy.nvim
-require("config._") -- plugin config
+keymap({ "n", "t" }, "<space>tt", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
+keymap("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
+keymap("n", "<leader>bo", function() Snacks.bufdelete.other() end, { desc = "Delete Other Buffers" })
+
+vim.cmd.colorscheme("nightfly")
