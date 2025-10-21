@@ -3,10 +3,14 @@
   name = Walker
 
 [alias]
-  pf = push --force-with-lease
-  cm = commit -m
+  b = branch
   ca = commit --amend --no-edit
   cl = log --pretty='%C(yellow)%h %C(cyan)%cd %Cblue%aN%C(auto)%d %Creset%s' --graph --date=relative --date-order
+  cm = commit -m
+  co = checkout
+  cp = cherry-pick
+  p = push
+  pf = push --force-with-lease
   st = status
 
 [core]
@@ -17,7 +21,7 @@
 [rerere]
   enabled = true
   autoupdate = true
- 
+
 [credential]
   helper = manager
 
