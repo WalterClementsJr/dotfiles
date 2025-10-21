@@ -3,16 +3,17 @@
 alias ll="ls -la"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
-alias e="$EDITOR"
+alias mv="mv -v"
+alias e="nvim"
 alias rm="echo Use the full path '/bin/rm', or use trash/gio trash"
+alias cat="bat"
 
-# Pretty print the path
+# Pretty print path
 alias path='echo $PATH | tr -s ":" "\n"'
 
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias .....="cd ../../../.."
 alias -- -="cd -"
 
 alias reload="exec ${SHELL} -l"
