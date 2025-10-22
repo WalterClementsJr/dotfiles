@@ -1,15 +1,13 @@
 export ZSH="$HOME/.oh-my-zsh"
-
-SOLARIZED_THEME="dark"
-ZSH_THEME="agnoster"
-plugins=(git z)
 source $ZSH/oh-my-zsh.sh
+
+source ~/.zsh_theme
+
+eval "$(zoxide init zsh)"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
-
-eval "$(~/.local/bin/mise activate zsh)"
 
