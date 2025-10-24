@@ -67,8 +67,8 @@ let mapleader=" "
 tnoremap <esc><esc> <C-\><C-n>
 
 " wrap navigation
-nnoremap j gj
-nnoremap k gk
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 
 " buffers
 nnoremap <Leader>be :buffers<CR>:buffer<Space>
