@@ -50,7 +50,8 @@ keymap("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 keymap("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 keymap("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Kill Buffer" })
 
-keymap({ "n", "t" }, "<space>tt", function() Snacks.terminal() end, { desc = "Toggle Terminal" })
+keymap({ "n", "t" }, '<C-_>', function() Snacks.terminal() end, { desc = "Toggle Terminal", remap = true })
+keymap({ "n", "t" }, '<C-/>', function() Snacks.terminal() end, { desc = "Toggle Terminal", remap = true })
 keymap("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
 keymap("n", "<leader>bo", function() Snacks.bufdelete.other() end, { desc = "Delete Other Buffers" })
 
