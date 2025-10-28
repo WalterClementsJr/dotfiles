@@ -71,12 +71,13 @@ return {
         lua_ls = {},
         marksman = {},
         pyright = {},
+        eslint = {},
       },
     },
-    event = {
-      "BufReadPre",
-      "BufNewFile",
-    },
+    -- event = {
+    --   "BufReadPre",
+    --   "BufNewFile",
+    -- },
     config = function(_, opts)
       local lspconfig = require("lspconfig")
       local blink = require("blink.cmp")
