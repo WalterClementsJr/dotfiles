@@ -2,16 +2,11 @@ FROM fedora:42
 
 WORKDIR /root
 
-RUN sh -c "$(curl -fsLS get.chezmoi.io)"
-RUN mv ./bin/chezmoi /usr/bin/
 RUN dnf update -y
+RUN dnf install git ansible neovim zsh flatpak -y
 
-# remove later
-RUN dnf install ansible neovim zsh flatpak -y
+COPY . /root/dotfiles
+WORKDIR /root/dotfiles
 
-COPY . /root/.local/share/chezmoi
-
-# RUN chezmoi apply
-
-ENTRYPOINT ["chezmoi", "apply"]
+ENTRYPOINT ["sleep", "infinity"]
 

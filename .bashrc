@@ -34,5 +34,5 @@ parse_git_branch() {
 
 # Set default prompt if interactive
 test -n "$PS1" &&
-prompt_simple
+prompt_color
 
