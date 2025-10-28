@@ -1,4 +1,4 @@
-Docker.+
+Dockerfile(\..*)?$
 Makefile
 README.md
 install_.+\.sh
@@ -6,5 +6,4 @@ install_.+\.sh
 \.git
 \.gitignore
 \.gitmodules
-\.stow-global-ignore
 
