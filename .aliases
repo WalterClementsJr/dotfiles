@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
+alias cat="bat"
+alias e="nvim"
+alias g="git"
 alias ll="ls -la"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias mv="mv -v"
-alias e="nvim"
 alias rm="echo Use the full path '/bin/rm', or use trash/gio trash"
-alias cat="bat"
 
 # Pretty print path
 alias path='echo $PATH | tr -s ":" "\n"'
