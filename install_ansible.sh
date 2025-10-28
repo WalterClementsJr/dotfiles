@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_on_fedora() {
-  sudo dnf install -y ansible
+  sudo dnf install -y ansible python3-dnf
 }
 
 install_on_ubuntu() {
@@ -42,5 +42,5 @@ esac
 
 ansible --version
 echo "Ansible will begin setting up your machine"
-ansible-playbook ~/.bootstrap/main.yml -vvv --ask-become-pass
+ansible-playbook ./.bootstrap/main.yml -vvv --ask-become-pass
 echo "Ansible installation complete"
