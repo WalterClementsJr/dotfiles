@@ -8,5 +8,5 @@ RUN dnf install git ansible neovim zsh flatpak -y
 COPY . /root/dotfiles
 WORKDIR /root/dotfiles
 
-ENTRYPOINT ["sleep", "infinity"]
+ENTRYPOINT ["sh", "install.sh"]
 

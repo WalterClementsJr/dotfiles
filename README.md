@@ -2,13 +2,9 @@
 
 This repo contains the configuration to setup my Linux machines.
 
-## Requirement
-
-This automated setup is currently only test and configured on Fedora machines.
+The automation is currently only tested on Fedora 42.
 
 ## How to run
 
-```shell
-export GITHUB_USERNAME=walterclementsjr
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
-```
+Download and execute `install.sh`.
+
