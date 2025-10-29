@@ -39,6 +39,7 @@ return {
         python = { "black" },
         go = { "goimports", "gofumpt" },
         javascript = { "prettierd", "prettier", stop_after_first = true },
+        shell = { "shellcheck" },
       },
       format_on_save = false,
     },
@@ -74,16 +75,13 @@ return {
         eslint = {},
       },
     },
-    -- event = {
-    --   "BufReadPre",
-    --   "BufNewFile",
-    -- },
     config = function(_, opts)
       local lspconfig = require("lspconfig")
       local blink = require("blink.cmp")
+      local capabilities = blink.get_lsp_capabilities()
 
       for server, config in pairs(opts.servers) do
-        config.capabilities = blink.get_lsp_capabilities(config.capabilities)
+        config.capabilities = capabilities
         lspconfig[server].setup(config)
       end
     end,
