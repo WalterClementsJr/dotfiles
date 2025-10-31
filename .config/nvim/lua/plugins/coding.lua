@@ -4,31 +4,6 @@ return {
     lazy = false,
     branch = "main",
     build = ":TSUpdate",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "go",
-        "html",
-        "java",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "yaml",
-      },
-      highlight = { enable = true },
-      indent = { enable = true },
-      fold = { enable = true },
-    },
-    config = function(_, opts)
-      require("nvim-treesitter").setup(opts)
-    end,
   },
   {
     "stevearc/conform.nvim",
@@ -64,15 +39,18 @@ return {
     "neovim/nvim-lspconfig",
     tag = "v1.8.0",
     pin = true,
+    event = {
+      "BufReadPre", "BufNewFile",
+    },
     opts = {
       servers = {
         clangd = {},
+        eslint = {},
         gopls = {},
         jdtls = {},
         lua_ls = {},
         marksman = {},
         pyright = {},
-        eslint = {},
       },
     },
     config = function(_, opts)
@@ -81,7 +59,7 @@ return {
       local capabilities = blink.get_lsp_capabilities()
 
       for server, config in pairs(opts.servers) do
-        config.capabilities = capabilities
+        config.capabilities = blink.get_lsp_capabilities(config.capabilities)
         lspconfig[server].setup(config)
       end
     end,

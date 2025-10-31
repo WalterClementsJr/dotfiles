@@ -33,13 +33,14 @@ return {
       vim.keymap.set("n", "<leader>d2", function() dap.step_over() end, { desc = "Step Over" })
       vim.keymap.set("n", "<leader>d3", function() dap.step_into() end, { desc = "Step Into" })
       vim.keymap.set("n", "<leader>d4", function() dap.step_out() end, { desc = "Step Out" })
-      vim.keymap.set("n", "<leader>dP", function() dap.pause() end, { desc = "Pause" })
+      vim.keymap.set("n", "<leader>d0", function() dap.pause() end, { desc = "Pause" })
       vim.keymap.set("n", "<leader>de", function() dui.eval(nil, { enter = true }) end, { desc = "Pause" })
       vim.keymap.set("n", "<leader>dr", function() dap.repl.toggle() end, { desc = "Toggle REPL evaluate" })
 
       vim.keymap.set("n", "<leader>ds", function() dap.session() end, { desc = "Session" })
       vim.keymap.set("n", "<leader>dt", function() dap.terminate() end, { desc = "Terminate" })
       vim.keymap.set("n", "<leader>dw", function() require("dap.ui.widgets").hover() end, { desc = "Widgets" })
+      vim.keymap.set("n", "<leader>dT", function() dui.toggle() end, { desc = "Toggle UI" })
 
       dap.listeners.before.attach.dapui_config = function() dui.open() end
       dap.listeners.before.launch.dapui_config = function() dui.open() end
