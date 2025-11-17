@@ -56,7 +56,7 @@ fi
 
 ansible --version
 echo "Ansible will begin setting up your machine"
-ansible-playbook ./.bootstrap/main.yml -vvv --ask-become-pass
+ansible-playbook ./ansible/main.yml -vvv --ask-become-pass
 echo "Ansible installation complete"
 
 # check stow
