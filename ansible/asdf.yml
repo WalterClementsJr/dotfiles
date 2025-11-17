@@ -1,0 +1,67 @@
+---
+- name: asdf
+  hosts: localhost
+  become: false
+  connection: local
+  gather_facts: true
+
+  vars:
+    asdf_temp_dir: "/tmp/asdf.tar.gz"
+
+  tasks:
+    - name: get latest tag
+      shell: |
+        curl -s https://api.github.com/repos/asdf-vm/asdf/releases/latest | jq -r '.tag_name'
+      register: curl_asdf_latest_tag
+
+    - name: set latest tag
+      set_fact:
+        asdf_latest_tag: "{{ curl_asdf_latest_tag.stdout }}"
+
+    - debug:
+        msg: "ASDF version {{ asdf_latest_tag }}"
+
+    - name: Normalize architecture
+      set_fact:
+        normalized_architecture: >-
+          {{ 'amd64' if ansible_architecture in ['x86_64', 'amd64']
+          else 'arm64' if ansible_architecture in ['aarch64', 'arm64']
+          else ansible_architecture }}
+
+    - name: register ASDF url
+      set_fact:
+        asdf_url: "https://github.com/asdf-vm/asdf/releases/download/{{ asdf_latest_tag }}/asdf-{{ asdf_latest_tag }}-{{ ansible_system }}-{{ normalized_architecture }}.tar.gz"
+
+    - debug:
+        msg: "Downloading from {{ asdf_url }}"
+
+    - name: Download ASDF tarball
+      get_url:
+        url: "{{ asdf_url }}"
+        dest: "/tmp/asdf.tar.gz"
+        mode: "0644"
+        force: yes
+
+    - name: Extract ASDF binary
+      become: true
+      unarchive:
+        src: "/tmp/asdf.tar.gz"
+        dest: "/usr/local/bin/"
+        remote_src: yes
+
+    - name: Verify
+      shell: |
+        asdf version
+        asdf plugin list
+
+    - name: setup asdf repo
+      shell: |
+        asdf plugin add zig https://github.com/asdf-community/asdf-zig.git
+        asdf install zig latest
+
+        asdf plugin add zig https://github.com/asdf-community/asdf-golang.git
+        asdf install zig latest
+
+        asdf plugin add zig https://github.com/asdf-community/asdf-nodejs.git
+        asdf install nodejs 24.11.1
+
