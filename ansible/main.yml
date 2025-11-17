@@ -60,8 +60,6 @@
           - gh
           - ghostty
           - git
-          - golang
-          - java-21-openjdk-devel
           - lazygit
           - make
           - meld
@@ -75,7 +73,6 @@
           - valgrind
           - virt-manager
           - yt-dlp
-          - zig
           - zsh
         state: present
 
@@ -166,9 +163,4 @@
           - md.obsidian.Obsidian
           - io.podman_desktop.PodmanDesktop
         state: present
-
-    - name: Install asdf
-      shell:
-        cmd: |
-          /usr/bin/go install github.com/asdf-vm/asdf/cmd/asdf@v0.18.0
 
