@@ -8,6 +8,7 @@ alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias mv="mv -v"
 alias rm="echo Use the full path '/bin/rm', or use trash/gio trash"
+alias brm="/bin/rm"
 
 # Pretty print path
 alias path='echo $PATH | tr -s ":" "\n"'
