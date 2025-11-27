@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Check arguments
+if [ $# -lt 2 ]; then
+  echo "Usage: changecommmitdate <commit hash prefix> \"<date>\" <optional timezone> (default +0700)"
+  echo "Example: changecommitdate abcd \"2021/11/11 11:11:11\" +0300"
+  exit 1
+fi
+
+COMMIT_PREFIX="$1"
+DATE="$2"
+TZ="${3:-+0700}"
+
+EPOCH=$(date -d "${DATE} ${TZ}" +"%s")
+EPOCH="$EPOCH $TZ"
+echo "$DATE $TZ to epoch: $EPOCH"
+
+git-filter-repo --force --commit-callback "$(cat <<EOF
+if commit.original_id.startswith(b'$COMMIT_PREFIX'):
+  newdate = b'$EPOCH'
+  commit.author_date = newdate
+  commit.committer_date = newdate
+EOF
+)"
+
