@@ -2,7 +2,6 @@
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
-eval "$(zoxide init bash)"
 
 RED="\033[0;31m"
 BROWN="\033[0;33m"
