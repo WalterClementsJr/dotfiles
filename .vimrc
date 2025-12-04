@@ -5,7 +5,10 @@ syntax on
 filetype plugin indent on
 
 set autoindent
+
 set autoread
+au CursorHold * checktime
+
 set backspace=indent,eol,start
 set clipboard="unnamedplus"
 set completeopt="menu,menuone,noselect"

@@ -3,12 +3,14 @@
 alias cat="bat"
 alias e="nvim"
 alias g="git"
+alias ls="ls -a --color=auto --group-directories-first"
 alias ll="ls -la"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias mv="mv -v"
 alias rm="echo Use the full path '/bin/rm', or use trash/gio trash"
 alias brm="/bin/rm"
+alias cowsay="cowsay -f small -g"
 
 # Pretty print path
 alias path='echo $PATH | tr -s ":" "\n"'

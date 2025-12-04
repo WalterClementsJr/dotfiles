@@ -3,6 +3,8 @@ Makefile
 README.md
 install_.+\.sh
 
+ansible
+
 \.git
 \.gitignore
 \.gitmodules
