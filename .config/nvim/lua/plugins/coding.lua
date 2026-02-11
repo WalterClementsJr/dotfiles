@@ -43,6 +43,9 @@ return {
       "BufReadPre", "BufNewFile",
     },
     opts = {
+      inlay_hints = {
+        enabled = true,
+      },
       servers = {
         clangd = {},
         eslint = {},
@@ -50,7 +53,10 @@ return {
         jdtls = {},
         lua_ls = {},
         marksman = {},
+        terraformls = {},
+        ts_ls = {},
         pyright = {},
+        zls = {},
       },
     },
     config = function(_, opts)

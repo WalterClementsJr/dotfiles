@@ -78,7 +78,6 @@ keymap("n", "<leader><space>", function() Snacks.picker.smart() end, { desc = "S
 keymap("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "Grep" })
 keymap("n", "<leader>e", function() Snacks.explorer() end, { desc = "File Explorer" })
 -- find
-keymap("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Buffers" })
 keymap("n", "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Find Config File" })
 keymap("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
 keymap("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Find Git Files" })
@@ -87,6 +86,7 @@ keymap("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recen
 -- git
 keymap("n", "<leader>gd", function() Snacks.picker.git_diff() end, { desc = "Git Diff (Hunks)" })
 -- Grep
+keymap("n", "<leader>,", function() Snacks.picker.buffers() end, { desc = "Buffer Lines" })
 keymap("n", "<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
 keymap("n", "<leader>sB", function() Snacks.picker.grep_buffers() end, { desc = "Grep Open Buffers" })
 keymap({ "n", "x" }, "<leader>sw", function() Snacks.picker.grep_word() end, { desc = "Visual selection or word" })
