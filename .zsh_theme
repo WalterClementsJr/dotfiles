@@ -232,6 +232,10 @@ prompt_aws() {
   esac
 }
 
+cmdExists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
 ## Main prompt
 build_prompt() {
   RETVAL=$?
@@ -246,6 +250,10 @@ build_prompt() {
 
 autoload -Uz vcs_info
 setopt prompt_subst
+
+if cmdExists fortune && cmdExists cowsay; then
+  fortune | cowsay
+fi
 
 newline=$'\n'
 PROMPT='%{%f%b%k%}$(build_prompt)${newline}# '
