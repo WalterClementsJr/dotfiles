@@ -41,13 +41,26 @@
         name: "{{ item }}"
       loop: "{{ copr_repos }}"
 
+    - name: Install misc
+      become: true
+      tags: devtool
+      ansible.builtin.dnf:
+        name:
+          - bat
+          - btop
+          - chromium
+          - cowsay
+          - fortune-mod
+          - nvtop
+          - tealdeer
+          - yt-dlp
+        state: present
+
     - name: Install devtool
       become: true
       tags: devtool
       ansible.builtin.dnf:
         name:
-          - btop
-          - chromium
           - curl
           - emacs
           - fastfetch
@@ -64,15 +77,12 @@
           - make
           - meld
           - neovim
-          - nvtop
           - podman
           - ripgrep
           - stow
-          - tealdeer
           - tmux
           - valgrind
           - virt-manager
-          - yt-dlp
           - zsh
         state: present
 
