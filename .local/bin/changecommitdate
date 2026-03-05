@@ -16,6 +16,14 @@ EPOCH=$(date -d "${DATE} ${TZ}" +"%s")
 EPOCH="$EPOCH $TZ"
 echo "$DATE $TZ to epoch: $EPOCH"
 
+# backup remote urls
+readarray -t remotes < <(git remote)
+urls=()
+
+for r in $remotes; do
+  urls+=($(git remote get-url "$r"))
+done
+
 git-filter-repo --force --commit-callback "$(cat <<EOF
 if commit.original_id.startswith(b'$COMMIT_PREFIX'):
   newdate = b'$EPOCH'
@@ -24,3 +32,8 @@ if commit.original_id.startswith(b'$COMMIT_PREFIX'):
 EOF
 )"
 
+# set remotes
+for i in "${!remotes[@]}"; do
+  echo "Backing up remotes $i: ${remotes[i]}: ${urls[i]}"
+  git remote add ${remotes[i]} ${urls[i]}
+done
