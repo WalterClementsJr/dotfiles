@@ -46,6 +46,7 @@ set sidescrolloff=8
 set signcolumn=yes
 set smartcase
 set smoothscroll
+set spell
 set splitbelow
 set splitkeep=screen
 set splitright

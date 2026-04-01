@@ -40,7 +40,8 @@ return {
     tag = "v1.8.0",
     pin = true,
     event = {
-      "BufReadPre", "BufNewFile",
+      "BufReadPre",
+      "BufNewFile",
     },
     opts = {
       inlay_hints = {
@@ -53,6 +54,7 @@ return {
         jdtls = {},
         lua_ls = {},
         marksman = {},
+        svelte = {},
         terraformls = {},
         ts_ls = {},
         pyright = {},
