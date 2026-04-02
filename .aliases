@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 alias cat="bat"
 alias e="nvim"
 alias g="git"
