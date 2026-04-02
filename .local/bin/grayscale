@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# update grayscale intensity
+set -euo pipefail
+
+echo "Updating KDE Grayscale intensity. Value must be between 0 and 1 to take effect"
+value="$1"
+
+kwriteconfig6 --file ~/.config/kwinrc --group 'Effect-colorblindnesscorrection' --key "Intensity" $value
+qdbus org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect colorblindnesscorrection

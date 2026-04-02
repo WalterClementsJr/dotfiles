@@ -5,6 +5,7 @@ install_.+\.sh
 
 ansible
 
+node_modules
 \.git
 \.gitignore
 \.gitmodules
