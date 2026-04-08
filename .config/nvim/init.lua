@@ -83,18 +83,17 @@ keymap("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find F
 keymap("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Find Git Files" })
 keymap("n", "<leader>fp", function() Snacks.picker.projects() end, { desc = "Projects" })
 keymap("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent" })
+keymap("n", "<leader>fb", function() Snacks.picker.lines() end, { desc = "Buffers" })
 -- git
 keymap("n", "<leader>gd", function() Snacks.picker.git_diff() end, { desc = "Git Diff (Hunks)" })
 -- Grep
-keymap("n", "<leader>,", function() Snacks.picker.buffers() end, { desc = "Buffer Lines" })
-keymap("n", "<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
+keymap("n", "<leader>,", function() Snacks.picker.buffers() end, { desc = "Buffers" })
 keymap("n", "<leader>sB", function() Snacks.picker.grep_buffers() end, { desc = "Grep Open Buffers" })
 keymap({ "n", "x" }, "<leader>sw", function() Snacks.picker.grep_word() end, { desc = "Visual selection or word" })
 -- search
 keymap("n", '<leader>s"', function() Snacks.picker.registers() end, { desc = "Registers" })
 keymap("n", "<leader>s/", function() Snacks.picker.search_history() end, { desc = "Search History" })
 keymap("n", "<leader>sa", function() Snacks.picker.autocmds() end, { desc = "Autocmds" })
-keymap("n", "<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
 keymap("n", "<leader>sc", function() Snacks.picker.command_history() end, { desc = "Command History" })
 keymap("n", "<leader>sC", function() Snacks.picker.commands() end, { desc = "Commands" })
 keymap("n", "<leader>sd", function() Snacks.picker.diagnostics() end, { desc = "Diagnostics" })
