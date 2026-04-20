@@ -16,7 +16,7 @@ return {
         javascript = { "prettierd", "prettier", stop_after_first = true },
         shell = { "shellcheck" },
       },
-      format_on_save = false,
+      format_on_save = true,
     },
     config = function(_, opts)
       require("conform").setup(opts)
