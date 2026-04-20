@@ -94,6 +94,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+nnoremap <leader>yp <cmd>call system('wl-copy', expand('%:p') . ':' . line('.'))<CR>
+
 " visual indent
 vnoremap > >gv
 vnoremap < <gv
