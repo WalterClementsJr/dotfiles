@@ -7,33 +7,73 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "status_bar": {
+    "active_encoding_button": "enabled"
+  },
+  "prettier": {
+    "parser": ""
+  },
+  "proxy": "",
+  "use_smartcase_search": true,
+  "which_key": {
+    "delay_ms": 200,
+    "enabled": true
+  },
+  "text_rendering_mode": "subpixel",
+  "agent_buffer_font_size": 13.0,
+  "agent_ui_font_size": 15.0,
+  "ui_font_weight": 100.0,
+  "buffer_line_height": "standard",
+  "buffer_font_weight": 100.0,
+  "terminal": {
+    "font_size": 10.0
+  },
+  "vim_mode": true,
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "left",
+  },
   "base_keymap": "JetBrains",
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "dark": "Zed (Default)",
   },
   "minimap": {
-    "show": "auto"
+    "show": "auto",
   },
   "git": {
+    "gutter_debounce": 1000,
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
   },
   "buffer_font_family": "BigBlueTerm437 Nerd Font",
   "buffer_font_features": {
-    "calt": 0
+    "calt": 0,
   },
   "ui_font_family": "CMU Typewriter Text",
-  "ui_font_size": 18.0,
-  "buffer_font_size": 16.0,
+  "ui_font_size": 16.0,
+  "buffer_font_size": 14.0,
   "theme": {
-    "mode": "dark",
-    "light": "Ayu Light",
-    "dark": "Ayu Dark"
-  }
+    "mode": "light",
+    "light": "One Light",
+    "dark": "Gruvbox Light Soft",
+  },
 }
