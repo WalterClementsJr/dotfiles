@@ -62,6 +62,8 @@
       ansible.builtin.dnf:
         name:
           - curl
+          - dict
+          - dictd
           - emacs
           - fastfetch
           - fd-find

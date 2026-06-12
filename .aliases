@@ -9,6 +9,12 @@ alias mv="mv -v"
 alias rm="echo Use the full path '/bin/rm', or use trash/gio trash"
 alias brm="/bin/rm"
 alias cowsay="cowsay -f small -g"
+alias def="dict -d gcide"
+alias thes="dict -d moby-thesaurus"
+alias lzg="lazygit"
+alias lzd="lazydocker"
+
+alias reload="exec ${SHELL} -l"
 
 # Pretty print path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -17,11 +23,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias -- -="cd -"
-
-alias reload="exec ${SHELL} -l"
-
-alias lzg="lazygit"
-alias lzd="lazydocker"
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
