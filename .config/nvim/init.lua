@@ -11,6 +11,7 @@ local opt = vim.opt
 opt.inccommand = "split" -- regex replace preview
 opt.autowrite = true
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
+opt.undofile = true
 
 opt.fillchars = {
   foldopen = "",
@@ -65,9 +66,7 @@ Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
 Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
 Snacks.toggle.diagnostics():map("<leader>ud")
 Snacks.toggle.line_number():map("<leader>ul")
-Snacks.toggle
-  .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
-  :map("<leader>uc")
+Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }) :map("<leader>uc")
 Snacks.toggle.treesitter():map("<leader>uT")
 Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
 Snacks.toggle.inlay_hints():map("<leader>uh")
@@ -117,7 +116,7 @@ keymap("n", "gD", function() vim.lsp.buf.declaration() end, { desc = "Goto Decla
 keymap("n", "gy", function() vim.lsp.buf.type_definition() end, { desc = "Goto T[y]pe Definition" })
 keymap("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Symbols" })
 keymap("n", "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, { desc = "LSP Workspace Symbols" })
-keymap("n", "gK", function() return vim.lsp.buf.signature_help() end, {desc = "Signature Help" })
+keymap("n", "gK", function() return vim.lsp.buf.signature_help() end, { desc = "Signature Help" })
 keymap("i", "<c-k>", function() return vim.lsp.buf.signature_help() end, { desc = "Signature Help" })
 -- Other
 keymap("n", "<leader>z", function() Snacks.zen() end, { desc = "Toggle Zen Mode" })
