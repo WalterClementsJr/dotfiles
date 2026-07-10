@@ -46,7 +46,7 @@ set sidescrolloff=8
 set signcolumn=yes
 set smartcase
 set smoothscroll
-set spell
+set nospell
 set splitbelow
 set splitkeep=screen
 set splitright
@@ -103,3 +103,8 @@ vnoremap < <gv
 " clear whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
+" spell on text files
+augroup SelectSpell
+    autocmd!
+    autocmd FileType markdown,text setlocal spell spelllang=en_us
+augroup END

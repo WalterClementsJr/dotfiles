@@ -13,7 +13,14 @@ return {
         enabled = true,
         timeout = 3000,
       },
-      picker = { enabled = true },
+      picker = {
+        sources = {
+          files = {
+            hidden = true,
+            ignored = true,
+          },
+        },
+      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
@@ -22,7 +29,7 @@ return {
       terminal = {},
       styles = {
         notification = {
-          wo = { wrap = true }, -- Wrap notifications
+          wo = { wrap = true },
         },
       },
     },
