@@ -10,7 +10,7 @@
       - https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020
       - https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
     copr_repos:
-      - pgdev/ghostty
+      - scottames/ghostty
       - atim/lazygit
 
   tasks:
