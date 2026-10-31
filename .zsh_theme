@@ -251,10 +251,6 @@ build_prompt() {
 autoload -Uz vcs_info
 setopt prompt_subst
 
-if cmdExists fortune && cmdExists cowsay; then
-  fortune | cowsay
-fi
-
 newline=$'\n'
 PROMPT='%{%f%b%k%}$(build_prompt)${newline}# '
 

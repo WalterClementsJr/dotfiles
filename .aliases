@@ -13,8 +13,9 @@ alias def="dict -d gcide"
 alias thes="dict -d moby-thesaurus"
 alias lzg="lazygit"
 alias lzd="lazydocker"
-
 alias reload="exec ${SHELL} -l"
+alias wisdom="fortune | cowsay"
+alias open="xdg-open"
 
 # Pretty print path
 alias path='echo $PATH | tr -s ":" "\n"'
