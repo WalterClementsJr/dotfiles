@@ -33,6 +33,28 @@ return {
   },
   {
     "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "ast_grep",
+        "black",
+        "clangd",
+        "codelldb",
+        "gofumpt",
+        "goimports",
+        "gopls",
+        "java-debug-adapter",
+        "jdtls",
+        "marksman", -- markdown
+        "prettier", -- js
+        "prettierd",
+        "stylua",
+        "svelte-language-server",
+        "terraform-ls",
+        "tinymist",
+        "typescript-language-server",
+        "zls",
+      },
+    },
   },
   {
     "mason-org/mason-lspconfig.nvim",
@@ -61,6 +83,7 @@ return {
         ts_ls = {},
         pyright = {},
         zls = {},
+        tinymist = {},
       },
     },
     config = function(_, opts)
